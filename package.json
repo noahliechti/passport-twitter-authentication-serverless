@@ -2,8 +2,9 @@
   "name": "passport-twitter-authentication-serverless",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "db": "mkdir mongo; mongod --dbpath mongo",
+    "serve": "NODE_ENV=development netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/noahliechti/passport-twitter-authentication-serverless/issues"
   },
-  "homepage": "https://github.com/noahliechti/passport-twitter-authentication-serverless#readme"
+  "homepage": "https://github.com/noahliechti/passport-twitter-authentication-serverless#readme",
+  "devDependencies": {
+    "netlify-cli": "^8.11.0"
+  },
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.7",
+    "passport": "^0.5.2",
+    "passport-twitter": "^1.0.4",
+    "serverless-http": "^2.7.0"
+  }
 }
