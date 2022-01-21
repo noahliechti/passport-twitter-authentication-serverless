@@ -6,7 +6,7 @@ exports.BASE_URL =
 exports.COOKIE_KEY = process.env.COOKIE_KEY || "SUPERSECRET";
 
 exports.ENDPOINT = "";
-// process.env.NODE_ENV === "development" ? "/.netlify/functions" : "/";
+// process.env.NODE_ENV === "development" ? "/.netlify/functions" : "";
 
 exports.TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY;
 exports.TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET;
