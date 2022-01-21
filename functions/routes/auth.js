@@ -16,12 +16,9 @@ router.get("/login", passport.authenticate("twitter"));
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    failureRedirect: "/",
-  }),
-  (req, res) => {
-    console.log("success redirect", req.url);
-    res.status(301).redirect("/");
-  }
+    successRedirect: BASE_URL,
+    failureRedirect: BASE_URL,
+  })
 );
 
 module.exports = router;

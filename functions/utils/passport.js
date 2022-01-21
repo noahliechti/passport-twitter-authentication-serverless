@@ -3,7 +3,6 @@ const TwitterStrategy = require("passport-twitter").Strategy;
 const User = require("../models/user");
 const {
   BASE_URL,
-  ENDPOINT,
   TWITTER_CONSUMER_KEY,
   TWITTER_CONSUMER_SECRET,
 } = require("./config");
@@ -28,7 +27,7 @@ passport.use(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
       consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: `${BASE_URL}${ENDPOINT}/auth/redirect`,
+      callbackURL: `${BASE_URL}/auth/redirect`,
     },
     async (token, tokenSecret, profile, done) => {
       const profileData = profile._json;

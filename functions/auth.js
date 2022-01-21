@@ -4,7 +4,7 @@ const serverless = require("serverless-http");
 const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const authRoutes = require("./routes/auth");
-const { ENDPOINT, COOKIE_KEY, MONGO_URL } = require("./utils/config");
+const { COOKIE_KEY, MONGO_URL } = require("./utils/config");
 
 require("./utils/passport");
 require("./utils/db");
@@ -34,6 +34,6 @@ app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
 
-app.use(`${ENDPOINT}/auth`, authRoutes);
+app.use("/auth", authRoutes);
 
 module.exports.handler = serverless(app);
