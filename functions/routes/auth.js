@@ -3,8 +3,9 @@ const passport = require("passport");
 const { BASE_URL } = require("../utils/config");
 
 router.get("/", (req, res) => {
-  res.send({ status: "hello" });
+  res.status(200).json({ user: req.user });
 });
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect(BASE_URL);

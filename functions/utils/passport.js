@@ -28,7 +28,7 @@ passport.use(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
       consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: `${BASE_URL}${ENDPOINT}/auth/github/callback`,
+      callbackURL: `${BASE_URL}${ENDPOINT}/auth/redirect`,
     },
     async (token, tokenSecret, profile, done) => {
       const profileData = profile._json;

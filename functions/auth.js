@@ -34,7 +34,6 @@ app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
 
-console.log(ENDPOINT);
-app.use(`/api/auth`, authRoutes);
+app.use(`${ENDPOINT}/auth`, authRoutes);
 
 module.exports.handler = serverless(app);
