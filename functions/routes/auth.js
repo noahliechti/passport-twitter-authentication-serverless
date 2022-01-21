@@ -13,17 +13,15 @@ router.get("/logout", (req, res) => {
 
 router.get("/login", passport.authenticate("twitter"));
 
-router.get("/success", (req, res) => {
-  console.log("success redirect", req.url);
-  res.redirect(BASE_URL);
-});
-
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    successRedirect: "/success", // TODO: can I just use "/"
-    failureRedirect: BASE_URL,
-  })
+    failureRedirect: "/",
+  }),
+  (req, res) => {
+    console.log("success redirect", req.url);
+    res.redirect("/");
+  }
 );
 
 module.exports = router;
