@@ -20,7 +20,7 @@ router.get("/success", (res, req) => {
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    successRedirect: "/success", // TODO: can I just use "/"
+    successRedirect: "auth/success", // TODO: can I just use "/"
     failureRedirect: BASE_URL,
   })
 );
