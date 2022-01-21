@@ -12,11 +12,12 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/login", passport.authenticate("twitter"));
+router.get("/success", res.redirect(BASE_URL));
 
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    successRedirect: BASE_URL, // TODO: can I just use "/"
+    successRedirect: "/success", // TODO: can I just use "/"
     failureRedirect: BASE_URL,
   })
 );
