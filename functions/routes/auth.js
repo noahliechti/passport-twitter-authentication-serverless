@@ -12,7 +12,8 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/login", passport.authenticate("twitter"));
-router.get("/success", (res, req) => {
+
+router.get("/success", (req, res) => {
   console.log("success redirect", req.url);
   res.redirect(BASE_URL);
 });
