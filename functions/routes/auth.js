@@ -12,7 +12,10 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/login", passport.authenticate("twitter"));
-router.get("/success", res.redirect(BASE_URL));
+router.get("/success", (res, req) => {
+  console.log("success redirect", req.url);
+  res.redirect(BASE_URL);
+});
 
 router.get(
   "/redirect",
