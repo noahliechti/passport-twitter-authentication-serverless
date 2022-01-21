@@ -34,6 +34,6 @@ app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
 
-app.use("/auth", authRoutes);
+app.use("/.netlify/functions/auth", authRoutes);
 
 module.exports.handler = serverless(app);
