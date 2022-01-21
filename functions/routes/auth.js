@@ -20,7 +20,7 @@ router.get(
   }),
   (req, res) => {
     console.log("success redirect", req.url);
-    res.redirect("/");
+    res.status(301).redirect("/");
   }
 );
 
