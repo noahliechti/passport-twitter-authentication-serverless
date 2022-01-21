@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const cors = require("cors");
 const serverless = require("serverless-http");
 const MongoStore = require("connect-mongo");
 const passport = require("passport");
@@ -33,6 +34,13 @@ app.use(
 app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
+app.use(
+  cors({
+    // origin: [`http://localhost:${globals.clientPort}`],
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // allow session cookie from browser to pass through
+  })
+);
 
 app.use(`${ENDPOINT}/auth`, authRoutes);
 

@@ -11,6 +11,7 @@ Sessions are stored in MongoDB.
   - Callback URL set to `https://your-app.netlify.app/auth/redirect` and `http://localhost:4000/auth/redirect`
 - MongoDB installed locally and MongoDB Atlas Account
 - Netlify Account that is connected to your GitHub project
+  - set publish directory to `src`
 - Install Netlify cli with `npm i -g netlify-cli`
 
 ## Environment Variables
@@ -30,3 +31,5 @@ Set the environment variables in Netlify.
 
 - run `npx netlify login` and `npx netlify link` to link our local directory to the remote Netlify project. with this method it will automatically inject the environment variables from Netlify.
 - Run `npm run serve`
+
+> Running the App in production requires you to set Network Access in MongoDB to allow access from everywhere.
