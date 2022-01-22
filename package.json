@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "db": "mkdir mongo; mongod --dbpath mongo",
+    "db": "rm -rf mongo && mkdir mongo && mongod --dbpath mongo",
     "serve": "NODE_ENV=development netlify dev --port 5000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
