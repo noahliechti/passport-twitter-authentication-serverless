@@ -6,12 +6,12 @@ router.get("/", (req, res) => {
   res.status(200).json({ user: req.user });
 });
 
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   req.logout();
   res.redirect(BASE_URL);
 });
 
-router.get("/login", passport.authenticate("twitter"));
+router.post("/login", passport.authenticate("twitter"));
 
 router.get(
   "/redirect",
