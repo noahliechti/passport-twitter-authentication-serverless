@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect(BASE_URL);
+  res.redirect("/?");
 });
 
 router.get("/login", passport.authenticate("twitter"));
@@ -16,8 +16,8 @@ router.get("/login", passport.authenticate("twitter"));
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    successRedirect: BASE_URL,
-    failureRedirect: BASE_URL,
+    successRedirect: "/?",
+    failureRedirect: "/?",
   })
 );
 
