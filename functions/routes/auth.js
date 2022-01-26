@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/?");
+  res.redirect("/");
 });
 
 router.get("/login", passport.authenticate("twitter"));
@@ -16,9 +16,11 @@ router.get("/login", passport.authenticate("twitter"));
 router.get(
   "/redirect",
   passport.authenticate("twitter", {
-    successRedirect: "/?",
-    failureRedirect: "/?",
-  })
+    failureRedirect: "/",
+  }),
+  (req, res) => {
+    res.redirect("/");
+  }
 );
 
 module.exports = router;
