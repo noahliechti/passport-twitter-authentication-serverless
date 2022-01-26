@@ -32,4 +32,21 @@ Set the environment variables in Netlify.
 - run `npx netlify login` and `npx netlify link` to link our local directory to the remote Netlify project. with this method it will automatically inject the environment variables from Netlify.
 - Run `npm run serve`
 
-> Running the App in production requires you to set Network Access in MongoDB to allow access from everywhere.
+## Important
+
+### Netlify query params
+
+Netlify has a [new "feature"](https://answers.netlify.com/t/changes-to-redirects-with-query-string-parameters-are-coming/23436) where they automatic pass through query string parameters. This is bad because after the user logged in he will then see his credentials in the URL like this: `https://serverless-twitter-login.netlify.app/?oauth_token=xyz&oauth_verifier=xyz`
+We had to make a little hack to remove the query params where we make a redirect to `/?success`, because we can not redirect to the same page.
+
+```text
+[[redirects]]
+  from = "/*"
+  to = "/:splat/?success"
+  query = {oauth_token = ":token", oauth_verifier = ":verifier"}
+  force = true
+```
+
+### MongoDB Production (security advice)
+
+> Running the App in production requires you to set Network Access in MongoDB to allow access from everywhere. Consider using [VPC Peering](https://www.youtube.com/watch?v=kWhIwlNkZm4)
