@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "db": "rm -rf mongo && mkdir mongo && mongod --dbpath mongo",
-    "serve": "NODE_ENV=development netlify dev --port 5000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "NODE_ENV=development netlify dev --port 5000"
   },
   "repository": {
     "type": "git",
